@@ -1,0 +1,42 @@
+html, body {
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    margin: 0;
+    font-family: "roboto condensed";
+    color: white;
+}
+
+.feed, .feed > iframe {
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    border: 0;
+}
+
+.feed-header {
+    margin-left: 10px;
+    margin-right: 10px;
+}
+
+.floater {
+    position: fixed;
+}
+
+#debug {
+    position: fixed;
+    right: 0;
+    bottom: 0;
+    /*display: none;*/
+    text-align: right;
+    background-color: #eee;
+    color: black;
+    padding: 0;
+}
+
+h1 {
+    font-weight: 400;
+    margin: 8px 0 8px;
+}
+
+p {}
