@@ -1,23 +1,23 @@
 var run = 0,
     cycleTime = 30000,
-    cycler = window.setInterval("cycleFeed()", cycleTime),
-    debugTimer = window.setInterval("updateTimer()", 1000),
-    timeLeft = 30;
+    //cycler = window.setInterval("cycleFeed()", cycleTime),
+    updateInterval = 100,
+    debugTimer = window.setInterval("updateTimer()", updateInterval),
+    timeLeft = 30000;
 
-function updateTimer() {
-    'use strict';
+if (!String.prototype.includes) {
+    String.prototype.includes = function (search, start) {
+        'use strict';
+        if (typeof start !== 'number') {
+            start = 0;
+        }
 
-    var timerText = document.getElementById("timer-text");
-    timeLeft = timeLeft - 1;
-    timerText.innerHTML = timeLeft.toString();
-}
-
-function forceChange() {
-    'use strict';
-    
-    clearInterval(cycler);
-    cycleFeed();
-    cycler = window.setInterval("cycleFeed()", cycleTime);
+        if (start + search.length > this.length) {
+            return false;
+        } else {
+            return this.indexOf(search, start) !== -1;
+        }
+    };
 }
 
 function cycleFeed() {
@@ -36,6 +36,30 @@ function cycleFeed() {
     frameId = "feed" + frameNum.toString();
     document.getElementById(frameId).style.display = "block";
     run++;
-    timeLeft = 30;
 
 }
+
+function forceChange() {
+    'use strict';
+
+    cycleFeed();
+}
+
+function updateTimer() {
+    'use strict';
+
+    var timerText = document.getElementById("timer-text"),
+        timeString;
+    timeLeft = timeLeft - updateInterval;
+    if (timeLeft <= 0) {
+        cycleFeed();
+        timeLeft = 30000;
+    }
+    timeString = (timeLeft / 1000).toString();
+    if (!timeString.includes(".")) {
+        timeString = timeString + ".0";
+    }
+    timerText.innerHTML = timeString;
+}
+
+cycleFeed();
