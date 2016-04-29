@@ -62,4 +62,10 @@ function updateTimer() {
     timerText.innerHTML = timeString;
 }
 
+$("#cycle-time").change(function () {
+    'use strict';
+    
+    console.log(this);
+});
+
 cycleFeed();

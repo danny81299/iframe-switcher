@@ -29,8 +29,8 @@ html, body {
     bottom: 0;
     /*display: none;*/
     text-align: right;
-    background-color: #eee;
-    color: black;
+    background-color: rgba(0, 0, 0, 0.5);
+    color: white;
     padding: 0;
 }
 

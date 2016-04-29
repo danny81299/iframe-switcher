@@ -5,6 +5,8 @@
     <link rel="stylesheet" type="text/css" href="main.css">
 	<link href='https://fonts.googleapis.com/css?family=Roboto+Condensed:400,300' rel='stylesheet' type='text/css'>
     <title>iFrame Cycler</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.2/jquery.min.js"></script>
+    <script src="switcher.js" type="text/javascript"></script>
 </head>
 
 <body>
@@ -23,12 +25,13 @@
         </div>
         <div id="debug">
             <h1 onclick="cycleFeed">Debug</h1>
-            <p id="timer-text">30</p>
+            <span id="timer-text">30</span>
+            <form id="options">
+                Cycle Time (ms):<br>
+                <input id="cycle-time" type="text" size=3 value="30000">
+            </form>
         </div>
     </div>
-
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.2/jquery.min.js"></script>
-    <script src="switcher.js" type="text/javascript"></script>
 
 </body>
 
